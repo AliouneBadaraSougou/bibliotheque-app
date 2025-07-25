@@ -1,0 +1,158 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dina Library </title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="font-sans text-gray-700 bg-gray-100">
+  <header class="bg-white shadow">
+    <nav class="container mx-auto py-4 flex justify-between items-center">
+      <a href="{{ url_for('index') }}" class="text-xl font-bold text-indigo-600">Bibliothèque</a>
+      <ul class="flex space-x-4">
+        <li><a href="{{ url_for('inscription') }}" class="text-indigo-600 font-medium">S'inscrire</a></li>
+        <li><a href="{{ url_for('connexion') }}" class="text-indigo-600 font-medium">Se Connecter</a></li>
+        <li><a href="{{ url_for('connexion_admin') }}" class="bg-indigo-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-indigo-700">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="bg-indigo-600 text-white py-20">
+      <div class="container mx-auto text-center">
+        <h1 class="text-4xl font-bold mb-4">Bienvenue dans notre Bibliothèque en Ligne Dina Library </h1>
+        <p class="text-lg mb-8">Explorez notre riche collection de livres et commandez en ligne.</p>
+        <a href="{{ url_for('inscription') }}" class="bg-white text-indigo-600 font-medium py-3 px-6 rounded-lg hover:bg-gray-200">Rechercher un Livre</a>
+      </div>
+    </section>
+
+    <section id="featured-books" class="container mx-auto py-12">
+      <h2 class="text-2xl font-bold mb-6">Livres Populaires</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- Affichage des livres populaires -->
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="static/images/télécharger.jpeg" alt="Couverture du livre" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold mb-2">Introduction to the Theory of Computation</h3>
+            <p class="text-gray-600 mb-4">Michael Sipser <br><br></p>
+            <p class="mb-4">Fondements de la théorie de la computation, incluant automates et complexité.</p>
+            <div class="flex justify-between items-center">
+              <button class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700"><a href="{{ url_for('inscription') }}">Commander</a></button>
+              
+            </div>
+          </div>
+        </div>
+        <!-- Répéter pour les autres livres populaires -->
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="static/images/télécharger2.jpeg" alt="Couverture du livre" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold mb-2">Artificial Intelligence: A Modern Approach</h3>
+            <p class="text-gray-600 mb-4">Stuart Russell et Peter Norvig</p>
+            <p class="mb-4"> IA incluant apprentissage automatique et traitement du langage.</p>
+            <div class="flex justify-between items-center">
+              <button class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700"><a href="{{ url_for('inscription') }}">Commander</a></button>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="static/images/télécharger3.jpeg" alt="Couverture du livre" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold mb-2">Engineering Mechanics: Dynamics</h3>
+            <p class="text-gray-600 mb-4"> J.L. Meriam et L.G. Kraige</p>
+            <p class="mb-4">Principes de dynamique en ingénierie mécanique, explications claires, nombreux exemples.</p>
+            <div class="flex justify-between items-center">
+              <button class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700"><a href="{{ url_for('inscription') }}">Commander</a></button>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="static/images/télécharger 4.jpeg" alt="Couverture du livre" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold mb-2">Mechanical Engineering Design</h3>
+            <p class="text-gray-600 mb-4"> J.E. Shigley et Charles R. Mischke</p>
+            <p class="mb-4">Guide complet conception mécanique:dimensionnement, matériaux, analyse contraintes/déformations</p>
+            <div class="flex justify-between items-center">
+              <button class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700"><a href="{{ url_for('inscription') }}">Commander</a></button>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="static/images/télécharger 5.jpeg" alt="Couverture du livre" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold mb-2">Electrical Engineering: Principles and Applications</h3>
+            <p class="text-gray-600 mb-4">Allan R. Hambley </p>
+            <p class="mb-4">Manuel d'ingénierie électrique : circuits, systèmes numériques, machines électriques<br><br><br><br><br></p>
+            <div class="flex justify-between items-center">
+              <button class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700"><a href="{{ url_for('inscription') }}">Commander</a></button>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="static/images/télécharger 6.jpeg" alt="Couverture du livre" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold mb-2">The Art of Electronics</h3>
+            <p class="text-gray-600 mb-4">Paul Horowitz et Winfield Hill</p>
+            <p class="mb-4">Référence incontournable pour ingénieurs et étudiants: conception de circuits électroniques<br><br><br><br><br><br></p>
+            <div class="flex justify-between items-center">
+              <button class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700"><a href="{{ url_for('inscription') }}">Commander</a></button>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="static/images/télécharger 8.jpeg" alt="Couverture du livre" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold mb-2">The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses</h3>
+            <p class="text-gray-600 mb-4"> Eric Ries<br></p>
+            <p class="mb-4">Guide création startups: innovation, itérations rapides, validation par tests marché<br></p>
+            <div class="flex justify-between items-center">
+              <button class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700"><a href="{{ url_for('inscription') }}">Commander</a></button>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="static/images/télécharger 7.jpeg" alt="Couverture du livre" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold mb-2">Principles of Economics <br></h3>
+            <p class="text-gray-600 mb-4">N. Gregory Mankiw</p>
+            <p class="mb-4">Manuel étudiants économie: microéconomie, macroéconomie, exemples pratiques<br><br><br><br><br><br><br></p>
+            <div class="flex justify-between items-center">
+              <button class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700"><a href="{{ url_for('inscription') }}">Commander</a></button>
+              
+            </div>
+          </div>
+        </div>
+        <!-- Ajouter d'autres livres ici -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-indigo-600 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Gestion de Bibliothèque. Tous droits réservés.</p>
+      <div class="mt-4">
+        <a href="https://www.instagram.com/sougou_abs?igsh=MWtua3IzbHN3ODA0NA==" class="text-white hover:text-gray-200 mr-4"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/abs___092?t=wfekhfRAw6Jqc4C1kvz0pw&s=09" class="text-white hover:text-gray-200 mr-4"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/qr/HOG3LGE4Z3ETF1" class="text-white hover:text-gray-200"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>

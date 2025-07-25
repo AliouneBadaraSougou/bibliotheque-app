@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Gestion de Bibliothèque{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans text-gray-700 bg-gray-100">
+  <header class="bg-white shadow">
+    <nav class="container mx-auto py-4 flex justify-between items-center">
+      <a href="{{ url_for('index') }}" class="text-xl font-bold text-indigo-600">Bibliothèque</a>
+      <ul class="flex space-x-4 ml-8"> <!-- Ajout de ml-8 pour ajouter un espace -->
+        <li><a href="{{ url_for('manage_profile') }}" class="text-indigo-600 font-medium">Gérer Profil</a></li>
+        <li><a href="{{ url_for('logout') }}" class="bg-indigo-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-indigo-700">Déconnexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container mx-auto py-12">
+      <h2 class="text-2xl font-bold mb-6">Gérer votre profil</h2>
+      <h3 class="text-xl font-bold mb-4">Vos livres favoris</h3>
+      {% if current_user.livreFavoris %}
+          <ul>
+              {% for book_id in current_user.livreFavoris.split(',') %}
+                  {% if book_id %}
+                      {% set book = Book.query.get(book_id) %}
+                      {% if book %}
+                          <li>{{ book.titre }}</li>
+                      {% else %}
+                          <li>Livre non trouvé pour l'ID {{ book_id }}</li>
+                      {% endif %}
+                  {% endif %}
+              {% endfor %}
+          </ul>
+      {% else %}
+          <p>Aucun livre favori pour le moment.</p>
+      {% endif %}
+      <form action="{{ url_for('manage_profile') }}" method="POST">
+        <div class="mb-4">
+          <h4 class="text-xl font-bold mb-4">Changement de mot de passe </h4>
+          <label for="email" class="block text-gray-700 font-medium mb-2">Adresse e-mail</label>
+          <input type="email" id="email" name="email" value="{{ current_user.email }}" class="block w-full px-3 py-2 border rounded-lg">
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-gray-700 font-medium mb-2">Nouveau mot de passe</label>
+          <input type="password" id="password" name="password" class="block w-full px-3 py-2 border rounded-lg">
+        </div>
+        <button type="submit" class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700">Mettre à jour</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="bg-indigo-600 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Gestion de Bibliothèque. Tous droits réservés.</p>
+      <div class="mt-4">
+        <a href="#" class="text-white hover:text-gray-200 mr-4"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white hover:text-gray-200 mr-4"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white hover:text-gray-200"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commander {{ book.titre }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans text-gray-700 bg-gray-100">
+  <header class="bg-white shadow">
+    <nav class="container mx-auto py-4 flex justify-between items-center">
+      <a href="{{ url_for('index') }}" class="text-xl font-bold text-indigo-600">Bibliothèque</a>
+    </nav>
+  </header>
+
+  <main class="container mx-auto py-12">
+    <div class="bg-white shadow rounded-lg p-8">
+      <h2 class="text-2xl font-bold mb-6">{{ book.titre }}</h2>
+      <p class="mb-4">Auteur: {{ book.auteur }}</p>
+      <p class="mb-4">Prix: {{ book.prix }} €</p>
+      <img src="{{ url_for('static', filename=book.couverture) }}" alt="Couverture du livre" class="w-full h-96 object-cover mb-6">
+      <p class="mb-4">Vous voulez commander ce livre ?</p>
+      <div class="flex justify-between">
+        <a href="{{ url_for('menu_route') }}" class="bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700">Non</a>
+        <a href="{{ url_for('commander', book_id=book.id, confirm=True) }}" class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700">Oui</a>
+      </div>
+      {% if request.args.get('confirm') %}
+      <form method="POST" action="{{ url_for('commander', book_id=book.id) }}">
+        <div class="mt-6">
+          <label for="localisation" class="block text-gray-700 font-medium mb-2">Entrez la localisation où l'on pourrons faire la livraison</label>
+          <input type="text" id="localisation" name="localisation" class="block w-full px-3 py-2 border rounded-lg" required>
+        </div>
+        <div class="mt-4">
+          <label for="telephone" class="block text-gray-700 font-medium mb-2">Entrez votre numéro de téléphone</label>
+          <input type="tel" id="telephone" name="telephone" class="block w-full px-3 py-2 border rounded-lg" required>
+        </div>
+        <button type="submit" class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700 mt-4">Valider Commande</button>
+      </form>
+      {% endif %}
+    </div>
+  </main>
+</body>
+</html>

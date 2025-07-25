@@ -1,0 +1,86 @@
+<!-- admin_dashboard.html -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Gestion de Bibliothèque{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans text-gray-700 bg-gray-100">
+  <header class="bg-white shadow">
+    <nav class="container mx-auto py-4 flex justify-between items-center">
+      <a href="{{ url_for('index') }}" class="text-xl font-bold text-indigo-600">Bibliothèque</a>
+      <ul class="flex space-x-4 ml-8"> <!-- Ajout de ml-8 pour ajouter un espace -->
+        <li><a href="{{ url_for('manage_profile') }}" class="text-indigo-600 font-medium">Gérer Profil</a></li>
+        <li><a href="{{ url_for('add_admin') }}" class="text-indigo-600 font-medium">Ajouter Admin</a></li>
+        <li><a href="{{ url_for('add_user') }}" class="text-indigo-600 font-medium">Ajouter Utilisateur</a></li>
+        <li><a href="{{ url_for('logout') }}" class="bg-indigo-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-indigo-700">Déconnexion</a></li>
+      </ul>
+    </nav>
+    
+
+  <main>
+    
+<div class="container mx-auto py-12">
+  <h2 class="text-2xl font-bold mb-6">Tableau de Bord Admin</h2>
+  <div class="mb-4">
+    <h3 class="text-xl font-bold">Utilisateurs</h3>
+    <ul>
+      {% for user in users %}
+      <li>
+        {{ user.nom }} {{ user.prenom }} - {{ user.email }}
+        <form action="{{ url_for('remove_user', user_id=user.id) }}" method="POST" style="display: inline;">
+          <button type="submit" class="text-red-600 hover:text-red-800">Supprimer</button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="mb-4">
+    <h3 class="text-xl font-bold">Livres</h3>
+    <ul>
+      {% for book in books %}
+      <li>
+        {{ book.titre }} - {{ book.auteur }}
+        <form action="{{ url_for('remove_book', book_id=book.id) }}" method="POST" style="display: inline;">
+          <button type="submit" class="text-red-600 hover:text-red-800">Supprimer</button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="mb-4">
+    <h3 class="text-xl font-bold">Administrateurs</h3>
+    <ul>
+      {% for admin in users %}
+      {% if admin.is_admin %}
+      <li>
+        {{ admin.nom }} {{ admin.prenom }} - {{ admin.email }}
+        <form action="{{ url_for('remove_admin', admin_id=admin.id) }}" method="POST" style="display: inline;">
+          <button type="submit" class="text-red-600 hover:text-red-800">Supprimer</button>
+        </form>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+  </main>
+
+  <footer class="bg-indigo-600 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Gestion de Bibliothèque. Tous droits réservés.</p>
+      <div class="mt-4">
+        <a href="#" class="text-white hover:text-gray-200 mr-4"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white hover:text-gray-200 mr-4"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white hover:text-gray-200"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

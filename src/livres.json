@@ -1,0 +1,53 @@
+[
+    {
+      "titre": "Le Petit Prince",
+      "auteur": "Antoine de Saint-Exupéry",
+      "description": "Un conte philosophique où un jeune prince voyage à travers les planètes et découvre les aspects de la vie adulte."
+    },
+    {
+      "titre": "Orgueil et Préjugés",
+      "auteur": "Jane Austen",
+      "description": "Un classique de la littérature anglaise qui explore les relations sociales, l'amour et le mariage dans la société du début du XIXe siècle."
+    },
+    {
+      "titre": "L'Alchimiste",
+      "auteur": "Paulo Coelho",
+      "description": "Un roman philosophique sur la quête de son propre destin, où un jeune berger espagnol suit ses rêves pour trouver un trésor caché en Égypte."
+    },
+    {
+      "titre": "Les Misérables",
+      "auteur": "Victor Hugo",
+      "description": "Un chef-d'œuvre de la littérature française qui raconte l'histoire de Jean Valjean et ses luttes pour la rédemption dans la France du XIXe siècle."
+    },
+    {
+      "titre": "Le Hobbit",
+      "auteur": "J.R.R. Tolkien",
+      "description": "Un conte fantastique qui suit les aventures du hobbit Bilbo Baggins alors qu'il se lance dans une quête pour récupérer un trésor gardé par le dragon Smaug."
+    },
+    {
+      "titre": "Titre du Livre 1",
+      "auteur": "Nom de l'Auteur 1",
+      "description": "Description du livre 1."
+    },
+    {
+      "titre": "Titre du Livre 2",
+      "auteur": "Nom de l'Auteur 2",
+      "description": "Description du livre 2."
+    },
+    {
+      "titre": "Titre du Livre 3",
+      "auteur": "Nom de l'Auteur 3",
+      "description": "Description du livre 3."
+    },
+    {
+      "titre": "Titre du Livre 4",
+      "auteur": "Nom de l'Auteur 4",
+      "description": "Description du livre 4."
+    },
+    {
+      "titre": "Titre du Livre 5",
+      "auteur": "Nom de l'Auteur 5",
+      "description": "Description du livre 5."
+    }
+  ]
+  

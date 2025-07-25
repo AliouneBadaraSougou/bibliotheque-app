@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation de Commande</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans text-gray-700 bg-gray-100">
+  <header class="bg-white shadow">
+    <nav class="container mx-auto py-4 flex justify-between items-center">
+      <a href="{{ url_for('index') }}" class="text-xl font-bold text-indigo-600">Bibliothèque</a>
+    </nav>
+  </header>
+
+  <main class="container mx-auto py-12">
+    <div class="bg-white shadow rounded-lg p-8">
+      <h2 class="text-2xl font-bold mb-6">{{ book.titre }}</h2>
+      <p class="mb-4">Auteur: {{ book.auteur }}</p>
+      <p class="mb-4">Prix: {{ book.prix }} €</p>
+      <img src="{{ url_for('static', filename=book.couverture) }}" alt="Couverture du livre" class="w-full h-96 object-cover mb-6">
+      <p class="mb-4">Votre commande a été effectuée avec succès. Elle sera envoyée à cette adresse : {{ localisation }}</p>
+      <p class="mb-4">Notre livreur vous contactera sur votre numéro : {{ telephone }} pour le déroulement de la livraison.</p>
+    </div>
+  </main>
+</body>
+</html>
